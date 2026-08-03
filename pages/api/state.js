@@ -18,6 +18,8 @@ const DEFAULT_STATE = {
 };
 
 export default async function handler(req, res) {
+  res.setHeader('Cache-Control', 'no-store, max-age=0');
+
   if (req.method === 'GET') {
     let state = await kv.get(KEY);
     if (!state) {
