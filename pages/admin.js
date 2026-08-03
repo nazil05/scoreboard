@@ -12,7 +12,7 @@ export default function Admin() {
 
   useEffect(() => {
     if (unlocked) {
-      fetch('/api/state')
+      fetch('/api/state', { cache: 'no-store' })
         .then((r) => r.json())
         .then(setData);
     }
